@@ -1,0 +1,164 @@
+<html>
+  <head>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+.nav{
+  background-color: #0091ea;
+  color: white;
+  padding:15px 4px;
+  text-align: center;
+  width: 100%;
+}
+
+.input-container {
+  display: flex;
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.icon {
+  padding: 10px;
+  background: dodgerblue;
+  color: white;
+  min-width: 50px;
+  text-align: center;
+}
+
+.input-field {
+  width: 100%;
+  padding: 10px;
+  outline: none;
+}
+
+
+ button {
+  background-color:#0091ea;
+  color: white;
+  padding: 15px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+h2:before {
+    margin-left: -50%;
+    text-align: right;
+}
+.color {
+    background-color: #ccc;
+}
+.fa-window-close{
+float:right;
+}
+.fa-graduation-cap{
+float:left;
+}
+</style>
+<script>
+  function validateAll()
+  {
+    var email=document.getElementById("mail").value;
+	var dob=document.getElementById("dob").value;
+	var name=document.getElementById("uname").value;
+	var pwd=document.getElementById("psw").value;
+	var phoneno=document.getElementById("phone").value;
+	var err="";var possible=true;
+	/*if(name.length==0  || pwd.length==0 || email.length==0 || dob.length==0 ) 
+	{
+	   alert("Please enter all values");
+	   possible=false;
+	   return false;
+	}*/
+	var atposition=email.indexOf("@");  
+	var dotposition=email.lastIndexOf(".");  
+	if (atposition<1 || dotposition<atposition+2 || dotposition+2>=email.length){  
+		err=err+"Please enter a valid e-mail address. ";  
+		possible=false;
+	}
+	var pformat=/^\d{10}$/;
+	if(phoneno.match(pformat)){}
+	else{
+		err=err+"Enter valid phone number. ";
+		possible=false;
+	}
+	var dateformat = /^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$/;
+    if(dob.match(dateformat))
+   {
+	var pdate = dob.split('/');
+    var dd = parseInt(pdate[0]);
+    var mm  = parseInt(pdate[1]);
+    var yy = parseInt(pdate[2]);
+    var ListofDays = [31,28,31,30,31,30,31,31,30,31,30,31];
+    if (mm==1 || mm>2)
+    {
+     if (dd>ListofDays[mm-1])
+     {
+       err=err+"Enter a valid date ";
+       possible=false;
+     }
+    }
+    if (mm==2)
+    {
+      var lyear = false;
+      if ( (!(yy % 4) && yy % 100) || !(yy % 400)) 
+      {
+        lyear = true;
+      }
+      if ((lyear==false) && (dd>=29))
+      {
+       err=err+"Enter a valid date ";
+       possible=false;
+      }
+      if ((lyear==true) && (dd>29))
+      {
+        err=err+"Enter a valid date ";
+        possible=false;
+      }
+    }
+  }
+  else
+  {
+    err=err+"Invalid date format! ";
+    possible=false;
+  }
+	window.alert(err);
+	return possible;
+  }
+
+</script>
+</head>
+<body>
+ <div class="nav">
+	<i class="fa fa-graduation-cap"></i>
+    Register  
+	<i class="fa fa-window-close"></i>	
+  </div>
+  <br>
+ <form name="myForm" action="">
+   <div class="input-container">
+     <input class="input-field" type="text" placeholder="Username" id="uname" required>
+     <i class="fa fa-user icon"></i>
+   </div>
+   <div class="input-container">
+     <input class="input-field" type="text" placeholder="mail@example.com" id="mail" required>
+     <i class="fa fa-envelope icon"></i>
+   </div>
+   <div class="input-container">
+     <input class="input-field" type="text" placeholder="Phone Number" id="phone" required>
+     <i class="fa fa-phone icon"></i>
+   </div>
+   <div class="input-container">
+     <input class="input-field" type="text" placeholder="Enter DOB in dd/mm/yyyy" id="dob" required>
+     <i class="fa fa-calendar icon"></i>
+   </div>
+   <div class="input-container">
+     <input class="input-field" type="password" placeholder="Password" id="psw" required>
+     <i class="fa fa-lock icon"></i>
+   </div>
+   <button type="submit" name="Register" onclick=validateAll()> REGISTER</button><br><br>
+  </form>
+  <button onclick="window.location.href='signin.html';">Already have an account? Sign in</button>
+  
+</body>
+</html> 

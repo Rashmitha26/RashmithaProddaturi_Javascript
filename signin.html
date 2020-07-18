@@ -1,0 +1,139 @@
+<html>
+  <head>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+.nav{
+  background-color: #0091ea;
+  color: white;
+  padding:15px 4px;
+  text-align: center;
+  width: 100%;
+}
+
+.input-container {
+  display: flex;
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.icon {
+  padding: 10px;
+  background: dodgerblue;
+  color: white;
+  min-width: 50px;
+  text-align: center;
+}
+
+.input-field {
+  width: 100%;
+  padding: 10px;
+  outline: none;
+}
+
+.facebook{
+  background-color: #3B5998;
+  color: white;
+  padding: 15px 20px;
+  border: white;
+  cursor: pointer;
+  width: 100%;
+}
+.google{
+  background-color:#dd4b39;
+  color: white;
+  padding: 15px 20px;
+  border: white;
+  cursor: pointer;
+  width: 100%;
+}
+
+.epam{
+  background-color:#aeea00;
+  color: white;
+  padding: 15px 20px;
+  border: white;
+  cursor: pointer;
+  width: 100%;
+}
+ button {
+  background-color:#0091ea;
+  color: white;
+  padding: 15px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+h2 {
+    position: relative;
+    font-size: 30px;
+    z-index: 1;
+    overflow: hidden;
+    text-align: center;
+}
+h2:before, h2:after {
+    position: absolute;
+    top: 51%;
+    overflow: hidden;
+    width: 50%;
+    height: 1px;
+    content: '\a0';
+    background-color: red;
+}
+h2:before {
+    margin-left: -50%;
+    text-align: right;
+}
+.color {
+    background-color: #ccc;
+}
+.fa-window-close{
+float:right;
+}
+.fa-graduation-cap{
+float:left;
+}
+</style>
+
+</head>
+<body>
+ <div class="nav">
+	<i class="fa fa-graduation-cap"></i>
+    Sign in  
+	<i class="fa fa-window-close"></i>	
+  </div>
+<br>
+ 
+ <form action="">
+ <div class="input-container">
+   
+    <input class="input-field" type="text" placeholder="mail@example.com" name="email">
+    <i class="fa fa-envelope icon"></i>
+  </div>
+
+  <div class="input-container">
+   
+    <input class="input-field" type="password" placeholder="Password" name="psw">
+    <i class="fa fa-lock icon"></i>
+  </div>
+ <button type="submit" name="SignIn"> SIGN IN</button>
+ </form>
+
+<p style="text-align:left;">Forgot your password?
+    <span style="float:right;">
+        <button onclick="window.location.href='register.html';">Register</button>
+    </span>
+</p>
+
+
+<h2>OR </h2>
+<div>
+<button type="submit" class="facebook"> <i class="fa fa-facebook"></i></i></button><br><br>
+<button type="submit" class="google"><i class="fa fa-google"></i></button>
+<br> <br>
+<button type="submit" class="epam"><i class="fa fa-angle-left"></i>EPAM LOGIN<i class="fa fa-angle-right"></i></button>
+
+</div>
+</body>
+
+</html> 
